@@ -10,7 +10,7 @@ export default function Hero() {
         <motion.img
           src={profileImg}
           alt="Profile"
-          className="mx-auto rounded-full w-32 h-32 mb-6 shadow-lg"
+          className="mx-auto rounded-full mb-6 shadow-lg" style={{ width: '128px', height: '128px' }}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring" }}
