@@ -1,6 +1,5 @@
 
 import { motion } from "framer-motion";
-import { RoughNotation } from "react-rough-notation";
 import profileImg from "../assets/profile.jpg";
 
 export default function Hero() {
@@ -16,10 +15,7 @@ export default function Hero() {
           transition={{ duration: 0.8, type: "spring" }}
         />
         <h1 className="text-5xl font-bold mb-4">
-          Hi, I’m{' '}
-          <RoughNotation type="highlight" show color="#FDE68A">
-            Sachin Oli
-          </RoughNotation>
+          Hi, I’m Sachin Oli
         </h1>
         <motion.p
           className="text-xl text-gray-600"
