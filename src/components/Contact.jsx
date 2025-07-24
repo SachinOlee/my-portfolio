@@ -1,17 +1,22 @@
-export default function Contact() {
-  return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-5 max-w-md">
-        <h2 className="text-3xl font-bold mb-8 text-center">Contact</h2>
-        <form className="flex flex-col gap-4">
-          <input type="text" placeholder="Your Name" className="border p-3 rounded"/>
-          <input type="email" placeholder="Your Email" className="border p-3 rounded"/>
-          <textarea placeholder="Your Message" className="border p-3 rounded h-32"></textarea>
-          <button className="bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition">
-            Send Message
-          </button>
-        </form>
-      </div>
-    </section>
-  );
-}
+const API_BASE_URL = 'http://localhost:3000'; // Change to your deployed backend URL when live
+
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(formData)),
+    });
+
+    if (!response.ok) throw new Error('Failed to submit');
+
+    alert('Thank you for your message! I will get back to you soon.');
+    this.reset();
+  } catch (error) {
+    alert('There was an error submitting your message. Please try again.');
+  }
+});
